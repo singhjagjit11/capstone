@@ -1,0 +1,8 @@
+mongo db
+james 
+james123
+
+mongodb+srv://james:james123@cluster0.4gevcwl.mongodb.net/test
+
+mongodb+srv://james:james123@cluster0.4gevcwl.mongodb.net/?retryWrites=true&w=majority
+
