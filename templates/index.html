@@ -1,0 +1,114 @@
+{% comment %}
+<html>
+  <head>
+    <title>API Display ...</title>
+  </head>
+  <body>
+    <h1>List of countries</h1>
+    {% for i in response %}
+    <strong>{{i.Cve}} ,</strong>
+    <strong>{{i.Cve}} ,</strong>
+    <strong>{{i.BaseScore}} ,</strong>
+    {% endfor %}
+  </body>
+</html>
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Oracle Database Server Risk Matrix</h1>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">CVE ID</th>
+            <th scope="col">Component</th>
+            <th scope="col">Package and/or Privilege Required</th>
+            <th scope="col">Protocol</th>
+            <th scope="col">Remote
+                Exploit
+                without
+                Auth.?</th>
+            <th scope="col">Base
+                Score</th>
+            <th scope="col">Attack
+                Vector</th>
+            <th scope="col">Attack
+                Complex</th>
+            <th scope="col">Privs
+                Req'd</th>
+            <th scope="col">User
+                Interact</th>
+            <th scope="col">Scope</th>
+            <th scope="col">Confid-
+                entiality</th>
+            <th scope="col">Inte-
+                grity</th>
+            <th scope="col">Avail-
+                ability</th>
+            <th scope="col">Supported Versions Affected</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in response %}
+          <tr>
+            <td>{{i.col0}} </td>
+            <td>{{i.col1}} </td>
+            <td>{{i.col2}} </td>
+            <td>{{i.col3}} </td>
+            <td>{{i.col4}} </td>
+            <td>{{i.col5}} </td>
+            <td>{{i.col6}} </td>
+            <td>{{i.col7}} </td>
+            <td>{{i.col8}} </td>
+            <td>{{i.col9}} </td>
+            <td>{{i.col10}} </td>
+            <td>{{i.col11}} </td>
+            <td>{{i.col12}} </td>
+            <td>{{i.col13}} </td>
+            <td>{{i.col14}} </td>
+            <td>{{i.col15}} </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

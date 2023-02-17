@@ -7,6 +7,7 @@ from django.conf import settings
 urlpatterns=[
     re_path(r'^patch$',views.patchesApi),
     re_path(r'^load_patch$',views.loadPatchesApi),
+    re_path(r'^display$',views.disp),
     # re_path(r'^patch/([0-9]+)$',views.patchesApi),
 
 
