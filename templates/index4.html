@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+
+
+    <title>Hello, world!</title>
+
+
+
+    {% comment %} <link rel="stylesheet" href="{% static 'app1/assets/css/style.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'app1/assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app1/assets/css/datatables.min.css' %}"  />
+ 
+
+
+
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <form method="POST" class="form-group">
+        {% csrf_token %} {% comment %}
+        <div class="form-group">
+          <label for="formGroupExampleInput">enter url to load</label>
+          <input
+            type="text"
+            class="form-control"
+            id="urlinput"
+            placeholder="Example input"
+          />
+          <button type="submit" class="btn btn-primary">Primary</button>
+        </div>
+        {% endcomment %} {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">
+          Load data from url
+        </button>
+      </form>
+      {% comment %} <p>https://www.oracle.com/security-alerts/cpujan2023.html</p> {% endcomment %}
+      <h1>Oracle Database Server Risk Matrix</h1>
+      <!-- in your HTML template -->
+
+      <table id="example" class="display  table table-dark">
+        <thead>
+          <tr>
+            <th>CVE ID</th>
+            <th>Component</th>
+            <th scope="col">Package and/or Privilege Required</th>
+            <th scope="col">Protocol</th>
+            <th scope="col">Remote Exploit without Auth.?</th>
+            <th scope="col">Base Score</th>
+            <th scope="col">Attack Vector</th>
+            <th scope="col">Attack Complex</th>
+            <th scope="col">Privs Req'd</th>
+            <th scope="col">User Interact</th>
+            <th scope="col">Scope</th>
+            <th scope="col">Confid- entiality</th>
+            <th scope="col">Inte- grity</th>
+            <th scope="col">Avail- ability</th>
+            <th scope="col">Supported Versions Affected</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in response %}
+          <tr>
+            <td>{{i.col0}}</td>
+            <td>{{i.col1}}</td>
+            <td>{{i.col2}}</td>
+            <td>{{i.col3}}</td>
+            <td>{{i.col4}}</td>
+            <td>{{i.col5}}</td>
+            <td>{{i.col6}}</td>
+            <td>{{i.col7}}</td>
+            <td>{{i.col8}}</td>
+            <td>{{i.col9}}</td>
+            <td>{{i.col10}}</td>
+            <td>{{i.col11}}</td>
+            <td>{{i.col12}}</td>
+            <td>{{i.col13}}</td>
+            <td>{{i.col14}}</td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script  src="{% static 'app1/assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'app1/assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'app1/assets/js/datatables.min.js' %}"></script>
+    <script src="{% static 'app1/assets/js/pdfmake.min.js' %}"></script>
+    <script src="{% static 'app1/assets/js/vfs_fonts.js' %}"></script>
+    <script src="{% static 'app1/assets/js/custom.js' %}"></script>
+  </body>
+</html>

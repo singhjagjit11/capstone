@@ -8,9 +8,8 @@ urlpatterns=[
     re_path(r'^patch$',views.patchesApi),
     # re_path(r'^load_patch$',views.loadPatchesApi),
     re_path(r'^display$',views.disp),
+    re_path(r'^download_csv$',views.download_csv,name='download_csv'),
     # re_path(r'^patch/([0-9]+)$',views.patchesApi),
-
-
 
     # re_path(r'^employee$',views.employeeApi),
     # re_path(r'^employee/([0-9]+)$',views.employeeApi),

@@ -15,78 +15,127 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.print.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var t = $("#example").DataTable({
+          dom: "Bfrtip",
+          buttons: ["copy", "csv", "excel", "pdf", "print"],
+        });
+
+        t.buttons().container().appendTo("#example_wrapper .col-md-6:eq(0)");
+      });
+    </script>
 
     <title>Hello, world!</title>
   </head>
   <body>
     <div class="container">
-
-      <form method="POST">
-        {% csrf_token %}
-        {% comment %} <div class="form-group">
+      <br />
+      <form method="POST" class="form-group">
+        {% csrf_token %} {% comment %}
+        <div class="form-group">
           <label for="formGroupExampleInput">enter url to load</label>
-          <input type="text" class="form-control" id="urlinput" placeholder="Example input">
+          <input
+            type="text"
+            class="form-control"
+            id="urlinput"
+            placeholder="Example input"
+          />
           <button type="submit" class="btn btn-primary">Primary</button>
-        </div> {% endcomment %}
-        {{ form.as_p }}
-        <button type="submit">Load data from url</button>
+        </div>
+        {% endcomment %} {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">
+          Load data from url
+        </button>
       </form>
       <p>https://www.oracle.com/security-alerts/cpujan2023.html</p>
       <h1>Oracle Database Server Risk Matrix</h1>
-      <table class="table table-dark">
+      <!-- in your HTML template -->
+      <a href="{% url 'download_csv' %}" class="btn btn-primary"
+        >Download CSV</a
+      >
+      <table id="example" class="display nowrap table table-dark">
         <thead>
           <tr>
+
+
+
+
+
             <th scope="col">CVE ID</th>
             <th scope="col">Component</th>
             <th scope="col">Package and/or Privilege Required</th>
             <th scope="col">Protocol</th>
-            <th scope="col">Remote
-                Exploit
-                without
-                Auth.?</th>
-            <th scope="col">Base
-                Score</th>
-            <th scope="col">Attack
-                Vector</th>
-            <th scope="col">Attack
-                Complex</th>
-            <th scope="col">Privs
-                Req'd</th>
-            <th scope="col">User
-                Interact</th>
+            <th scope="col">Remote Exploit without Auth.?</th>
+            <th scope="col">Base Score</th>
+            <th scope="col">Attack Vector</th>
+            <th scope="col">Attack Complex</th>
+            <th scope="col">Privs Req'd</th>
+            <th scope="col">User Interact</th>
             <th scope="col">Scope</th>
-            <th scope="col">Confid-
-                entiality</th>
-            <th scope="col">Inte-
-                grity</th>
-            <th scope="col">Avail-
-                ability</th>
+            <th scope="col">Confid- entiality</th>
+            <th scope="col">Inte- grity</th>
+            <th scope="col">Avail- ability</th>
             <th scope="col">Supported Versions Affected</th>
           </tr>
         </thead>
         <tbody>
           {% for i in response %}
           <tr>
-            <td>{{i.col0}} </td>
-            <td>{{i.col1}} </td>
-            <td>{{i.col2}} </td>
-            <td>{{i.col3}} </td>
-            <td>{{i.col4}} </td>
-            <td>{{i.col5}} </td>
-            <td>{{i.col6}} </td>
-            <td>{{i.col7}} </td>
-            <td>{{i.col8}} </td>
-            <td>{{i.col9}} </td>
-            <td>{{i.col10}} </td>
-            <td>{{i.col11}} </td>
-            <td>{{i.col12}} </td>
-            <td>{{i.col13}} </td>
-            <td>{{i.col14}} </td>
-            <td>{{i.col15}} </td>
+            <td>{{i.col0}}</td>
+            <td>{{i.col1}}</td>
+            <td>{{i.col2}}</td>
+            <td>{{i.col3}}</td>
+            <td>{{i.col4}}</td>
+            <td>{{i.col5}}</td>
+            <td>{{i.col6}}</td>
+            <td>{{i.col7}}</td>
+            <td>{{i.col8}}</td>
+            <td>{{i.col9}}</td>
+            <td>{{i.col10}}</td>
+            <td>{{i.col11}}</td>
+            <td>{{i.col12}}</td>
+            <td>{{i.col13}}</td>
+            <td>{{i.col14}}</td>
+
           </tr>
           {% endfor %}
         </tbody>
       </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
     <!-- Optional JavaScript -->
@@ -106,5 +155,7 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+
+    
   </body>
 </html>

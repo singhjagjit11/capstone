@@ -15,6 +15,22 @@ from django.http import HttpResponse
 from bs4 import BeautifulSoup
 from .forms import UrlForm
 
+import csv
+
+
+def download_csv(request):
+    print('kk')
+    # Create a CSV file object
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="mydata.csv"'
+
+    # Generate CSV data
+    writer = csv.writer(response)
+    writer.writerow(['Name', 'Age', 'Country'])
+    writer.writerow(['Alice', '25', 'USA'])
+    writer.writerow(['Bob', '30', 'Canada'])
+
+    return response
 
 
 @csrf_exempt
@@ -38,11 +54,16 @@ def patchesApi(request,id=0):
         Patches.objects.all().delete()
         return JsonResponse("delete complete",safe=False)
 
+
+
+
+
+
 def disp(request):
     if request.method=='GET':
         form = UrlForm()
         response=requests.get('http://127.0.0.1:8000/patch').json()
-        return render(request,'index.html',{'response':response,'form':form})
+        return render(request,'index4.html',{'response':response,'form':form})
 
     #loafd from url
     elif request.method=='POST':
