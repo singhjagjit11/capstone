@@ -18,21 +18,6 @@ from .forms import UrlForm
 import csv
 
 
-def download_csv(request):
-    print('kk')
-    # Create a CSV file object
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="mydata.csv"'
-
-    # Generate CSV data
-    writer = csv.writer(response)
-    writer.writerow(['Name', 'Age', 'Country'])
-    writer.writerow(['Alice', '25', 'USA'])
-    writer.writerow(['Bob', '30', 'Canada'])
-
-    return response
-
-
 @csrf_exempt
 def patchesApi(request,id=0):
     if request.method=='GET':
