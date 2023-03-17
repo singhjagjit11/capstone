@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
+  {% load static %}
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -9,45 +9,36 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <title>Patch</title>
 
-
-    <title>Hello, world!</title>
-
-
-
-    {% comment %} <link rel="stylesheet" href="{% static 'app1/assets/css/style.css' %}"> {% endcomment %}
-    <link rel="stylesheet" href="{% static 'app1/assets/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'app1/assets/css/datatables.min.css' %}"  />
- 
-
-
-
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'app1/assets/css/style.css' %}" />
+    {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="{% static 'app1/assets/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'app1/assets/css/datatables.min.css' %}"
+    />
   </head>
   <body>
     <div class="container">
       <br />
       <form method="POST" class="form-group">
-        {% csrf_token %} {% comment %}
-        <div class="form-group">
-          <label for="formGroupExampleInput">enter url to load</label>
-          <input
-            type="text"
-            class="form-control"
-            id="urlinput"
-            placeholder="Example input"
-          />
-          <button type="submit" class="btn btn-primary">Primary</button>
-        </div>
-        {% endcomment %} {{ form.as_p }}
+        {% csrf_token %} {{ form.as_p }}
         <button type="submit" class="btn btn-primary">
           Load data from url
         </button>
       </form>
-      {% comment %} <p>https://www.oracle.com/security-alerts/cpujan2023.html</p> {% endcomment %}
+      {% comment %}
+      <p>https://www.oracle.com/security-alerts/cpujan2023.html</p>
+      {% endcomment %}
       <h1>Oracle Database Server Risk Matrix</h1>
       <!-- in your HTML template -->
 
-      <table id="example" class="display  table table-dark">
+      <table id="example" class="display table table-dark">
         <thead>
           <tr>
             <th>CVE ID</th>
@@ -85,32 +76,15 @@
             <td>{{i.col12}}</td>
             <td>{{i.col13}}</td>
             <td>{{i.col14}}</td>
-
           </tr>
           {% endfor %}
         </tbody>
       </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script  src="{% static 'app1/assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'app1/assets/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'app1/assets/js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'app1/assets/js/datatables.min.js' %}"></script>
     <script src="{% static 'app1/assets/js/pdfmake.min.js' %}"></script>
